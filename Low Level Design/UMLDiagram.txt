@@ -1,0 +1,132 @@
+UML (Unified Modeling Language) Overview
+
+UML is used to visualize, design, and document software systems.
+
+Types of UML Diagrams
+
+A. Structural Diagrams (Static View)
+These show the structure of the system, i.e., how components are organized.
+
+Examples:
+
+Class Diagram
+Object Diagram
+Component Diagram
+
+Key idea:
+Focus on what exists in the system.
+
+B. Behavioural Diagrams (Dynamic View)
+These show how the system behaves over time.
+
+Examples:
+
+Sequence Diagram
+Use Case Diagram
+Activity Diagram
+
+Key idea:
+Focus on how the system works and interacts.
+
+Class Diagram
+
+A class diagram represents:
+
+Classes
+Attributes (data members)
+Methods (functions)
+Relationships between classes
+
+Structure of a Class
+
+A class is represented as a rectangle divided into three sections:
+
++----------------------+
+| ClassName |
++----------------------+
+| attributes |
++----------------------+
+| methods |
++----------------------+
+
+Access Specifiers
+
+Symbols used:
+
+Public
+Private
+Protected
+
+Example:
+
++----------------------+
+| Student |
++----------------------+
+| - id : int |
+| - name : string |
++----------------------+
+| + getData() |
+| + display() |
++----------------------+
+
+Association (Relationship)
+
+Association represents a connection between two classes.
+
+Example:
+
+Teacher -------- Student
+
+This means a Teacher is associated with a Student.
+
+Types:
+
+One-to-One
+One-to-Many
+Many-to-Many
+Sequence Diagram
+
+A sequence diagram shows interaction between objects in time order.
+
+Time flows from top to bottom.
+
+Basic structure:
+
+Object1 Object2 Object3
+| | |
+| ----msg--> | |
+| | ----msg--> |
+| | <---reply--|
+
+Example (Login System)
+
+User → System : login()
+System → Database : verify()
+Database → System : result
+System → User : success/failure
+
+Key Elements
+
+Lifeline: vertical line representing an object
+Message: arrow showing communication
+Return: dashed arrow showing response
+Time: flows from top to bottom
+
+Quick Summary
+
+Structural diagrams show system structure (static)
+Behavioural diagrams show system behavior (dynamic)
+Class diagram shows classes, attributes, and methods
+Association shows relationships between classes
+Sequence diagram shows interaction over time
+
+One-line Definitions
+
+UML:
+A standard language for modeling and visualizing software systems.
+
+Class Diagram:
+Represents the static structure of classes and their relationships.
+
+Sequence Diagram:
+Represents the order of interactions between objects over time.
