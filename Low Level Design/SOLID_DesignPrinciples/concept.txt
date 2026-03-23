@@ -1,0 +1,173 @@
+<<< SOLID Design Principles >>>
+
+SOLID is a set of five principles used to design clean, maintainable, and scalable software.
+
+1. Single Responsibility Principle (SRP)
+Definition
+
+A class should have only one reason to change.
+
+Meaning
+
+Each class should perform a single task or responsibility.
+
+Bad Example
+
+A User class that:
+
+Handles authentication
+Saves data to the database
+Sends emails
+
+This mixes multiple responsibilities.
+
+Good Example
+
+Split responsibilities:
+
+UserAuth → authentication
+UserRepository → database operations
+EmailService → email handling
+Real-Life Example
+
+In a restaurant:
+
+Chef cooks food
+Waiter serves food
+Cashier handles billing
+
+Each role has one responsibility.
+
+2. Open/Closed Principle (OCP)
+Definition
+
+Software should be open for extension but closed for modification.
+
+Meaning
+
+You should be able to add new functionality without changing existing code.
+
+Bad Example
+if (type == "credit") { }
+else if (type == "debit") { }
+
+Adding a new type requires modifying existing logic.
+
+Good Example
+
+Use abstraction and polymorphism:
+
+class Payment {
+public:
+    virtual void pay() = 0;
+};
+
+New payment types can be added by extending the class, without modifying existing code.
+
+Real-Life Example
+
+Mobile operating systems:
+
+You install new apps
+The OS itself does not need modification
+3. Liskov Substitution Principle (LSP)
+Definition
+
+Subtypes must be substitutable for their base types without altering correctness.
+
+Meaning
+
+A subclass should behave in a way that does not break the expectations of the base class.
+
+Bad Example
+class Bird {
+    virtual void fly();
+};
+
+class Penguin : public Bird {
+    void fly() { throw error; }
+};
+
+Penguin cannot fly, so this violates expectations.
+
+Good Example
+
+Separate behaviors:
+
+FlyingBird
+NonFlyingBird
+Real-Life Example
+
+If a function expects a vehicle that can move, replacing a car with a bike should still work. If replacement breaks functionality, design is incorrect.
+
+4. Interface Segregation Principle (ISP)
+Definition
+
+Clients should not be forced to depend on methods they do not use.
+
+Meaning
+
+Create small, specific interfaces instead of large, general ones.
+
+Bad Example
+class Worker {
+    virtual void work();
+    virtual void eat();
+};
+
+A robot worker does not need eat().
+
+Good Example
+
+Split interfaces:
+
+Workable
+Eatable
+Real-Life Example
+
+A gym offers:
+
+Cardio plans
+Strength training plans
+
+Users choose what they need instead of being forced into a combined plan.
+
+5. Dependency Inversion Principle (DIP)
+Definition
+
+High-level modules should depend on abstractions, not on concrete implementations.
+
+Meaning
+
+Use interfaces or abstract classes instead of directly depending on specific classes.
+
+Bad Example
+class Switch {
+    Bulb bulb;
+};
+
+The switch is tightly coupled to a specific device.
+
+Good Example
+class Device {
+public:
+    virtual void turnOn() = 0;
+};
+
+class Switch {
+    Device* device;
+};
+
+Now the switch works with any device.
+
+Real-Life Example
+
+A USB charger works with multiple devices because it follows a standard interface rather than being tied to one device.
+
+Summary
+Principle	Key Idea
+SRP	        One class, one responsibility
+OCP	        Extend without modifying
+LSP	        Subtypes must be replaceable
+ISP	        Use small, focused interfaces
+DIP	        Depend on abstractions

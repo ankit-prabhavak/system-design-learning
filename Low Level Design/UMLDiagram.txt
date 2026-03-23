@@ -130,3 +130,4 @@ Represents the static structure of classes and their relationships.
 
 Sequence Diagram:
 Represents the order of interactions between objects over time.
+
